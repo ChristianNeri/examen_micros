@@ -1,0 +1,5 @@
+package com.examen.publicaciones.repository;
+
+public class PublicacionRepository {
+
+}

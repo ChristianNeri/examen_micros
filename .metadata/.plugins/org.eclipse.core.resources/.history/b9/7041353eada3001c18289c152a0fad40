@@ -1,0 +1,17 @@
+spring.application.name= servicio-publicaciones
+server.port= 8003
+
+eureka.client.service-url.defaultZone=http://servicio-eureka-server:8761/eureka
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/social_media
+spring.datasource.username=admin
+spring.datasource.password=admin
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=validate
+#spring.jpa.hibernate.naming.physical-strategy= org.hibernate.cfg.EJB3NamingStrategy
+logging.level.org.hibernate.SQL=debug
+
+
+spring.boot.admin.client.url= http://localhost:8091/
+

@@ -1,0 +1,28 @@
+package com.examen.publicaciones.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.examen.publicaciones.models.Publicacion;
+import com.examen.publicaciones.repository.PublicacionRepository;
+
+@Service
+public class PublicacionService {
+	private final PublicacionRepository publicacionRepository;
+
+	@Autowired
+	public PublicacionService(PublicacionRepository publicacionRepository) {
+		this.publicacionRepository = publicacionRepository;
+	}
+	
+	public List<Publicacion> getAllPublicaciones(){
+		return publicacionRepository.findAll();
+	}
+	
+	public publicacion getPublicacion{
+		return publicacionRepository.findById(id);
+	}
+	
+}

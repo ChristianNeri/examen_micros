@@ -1,0 +1,18 @@
+spring.application.name=registro-usuario
+server.port= 8001
+
+eureka.client.service-url.defaultZone=http://servicio-eureka-server/eureka
+#eureka.client.service-url.defaultZone=http://127.0.0.1:8761/eureka/
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/social_media
+spring.datasource.username=admin
+spring.datasource.password=admin
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=validate
+#spring.jpa.hibernate.naming.physical-strategy= org.hibernate.cfg.EJB3NamingStrategy
+logging.level.org.hibernate.SQL=debug
+
+
+spring.boot.admin.client.url= http://localhost:8090/
+

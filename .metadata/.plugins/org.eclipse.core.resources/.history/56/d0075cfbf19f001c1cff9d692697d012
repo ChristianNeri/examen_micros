@@ -1,0 +1,28 @@
+package com.examen.publicaciones.models;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="publicaciones")
+public class Publicacion {
+	
+	private String publicacion;
+
+	public Publicacion(String publicacion) {
+		this.publicacion = publicacion;
+	}
+	
+	public Publicacion() {}
+
+
+	public String getPublicacion() {
+		return publicacion;
+	}
+
+	public void setPublicacion(String publicacion) {
+		this.publicacion = publicacion;
+	}
+	
+	
+}

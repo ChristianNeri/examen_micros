@@ -1,0 +1,48 @@
+package com.examen.publicaciones.models;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="publicaciones")
+public class Publicacion {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id_mensaje;
+	private String publicacion;
+
+	
+	public Publicacion(Long id_mensaje, String publicacion) {
+		this.id_mensaje = id_mensaje;
+		this.publicacion = publicacion;
+	}
+
+
+	public Publicacion() {}
+
+
+	public String getPublicacion() {
+		return publicacion;
+	}
+
+	public void setPublicacion(String publicacion) {
+		this.publicacion = publicacion;
+	}
+
+
+	public Long getId_mensaje() {
+		return id_mensaje;
+	}
+
+
+	public void setId_mensaje(Long id_mensaje) {
+		this.id_mensaje = id_mensaje;
+	}
+	
+	
+}

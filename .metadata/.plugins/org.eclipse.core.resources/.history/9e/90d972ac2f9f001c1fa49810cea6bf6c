@@ -1,0 +1,5 @@
+package com.examen.administracion.entity;
+
+public class Administracion_usuario {
+
+}

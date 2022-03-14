@@ -1,0 +1,5 @@
+package com.examen.administracion.repository;
+
+public interface AdministracionRepository {
+
+}

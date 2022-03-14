@@ -1,0 +1,16 @@
+package com.examen.monitor;
+
+public class WebSecurityConfig {
+
+	
+	  @Override
+	    protected void configure(HttpSecurity http) throws Exception {
+	       
+	        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+	                .authorizeRequests().antMatchers("/soapWS/**").permitAll().and()
+	                .authorizeRequests().antMatchers("/actuator/**").permitAll()
+	                .anyRequest().authenticated().and()
+	                .httpBasic().and()
+	                .csrf().disable();
+	    }
+}

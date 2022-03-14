@@ -1,0 +1,63 @@
+version: '3.3'
+services:
+  servicio-eureka-server:
+    image: cneri/eureka:0.0.1-SNAPSHOT
+    ports:
+    - 8761:8761
+  monitor-service:
+    image: cneri/monitor:0.0.1-SNAPSHOT
+    ports:
+    - 8090:8090
+  db-service:
+    build: db-service
+    environment: 
+      - POSTGRES_PASSWORD=admin
+    ports: 
+      - 5432:5432
+    volumes:
+      - ./blockstorage/postgres:/var/lib/postgres/data
+  registro-usuario:
+    image: cneri/registro:0.0.1-SNAPSHOT
+    ports: 
+      - 8001:8001
+    depends_on:
+      - servicio-eureka-server
+      - db-service
+      - monitor-service
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db-service:5432/social_media
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://servicio-eureka-server:8761/eureka/
+      - SPRING_BOOT_ADMIN_URL=http://monitor-service:8090
+  administracion:
+    image: cneri/administracion:0.0.1-SNAPSHOT
+    ports: 
+      - 8002:8002
+    depends_on:
+      - db-service
+      - servicio-eureka-server
+      - monitor-service
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db-service:5432/social_media
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://servicio-eureka-server:8761/eureka/
+      - SPRING_BOOT_ADMIN_URL=http://monitor-service:8090
+  servicio-publicaciones:
+    image: cneri/publicaciones:0.0.1-SNAPSHOT
+    ports: 
+      - 8003:8003
+    depends_on:
+      - db-service
+      - servicio-eureka-server
+      - monitor-service
+      - registro-usuario
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db-service:5432/social_media
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://servicio-eureka-server:8761/eureka/
+      - SPRING_BOOT_ADMIN_URL=http://monitor-service:8090
+
+     

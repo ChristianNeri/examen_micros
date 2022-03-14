@@ -1,0 +1,19 @@
+1646751718770	Rename package 'com.examen.cliente'
+1646751737095	Rename package 'com.examen.cliente.entity'
+1646751785298	Rename package 'com.examen.cliente.usuario'
+1646751809985	Rename type 'cliente'
+1646757846865	Copy file
+1646757877410	Delete element
+1646759440435	Rename type 'DemoApplication'
+1646780179870	Rename package 'com.examen.usuario.repsitory'
+1647011298940	Rename package 'com.examen.usuario.controller'
+1647011323304	Rename package 'com.examen.usuario.entity'
+1647011336578	Rename package 'com.examen.usuario.repository'
+1647011357750	Rename package 'com.examen.usuario.service'
+1647011422493	Rename type 'RegistroUsuario'
+1647027882150	Copy file
+1647032343852	Delete element
+1647108055995	Copy compilation unit
+1647108076022	Copy compilation unit
+1647108102730	Delete element
+1647114400932	Rename type 'Usuario'
